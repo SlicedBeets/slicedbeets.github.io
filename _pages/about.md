@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Mechanical Engineer
+subtitle:
 
 profile:
   align: right
@@ -24,9 +24,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+
+I'm a Mechanical Engineer with broad interests in mechanical system modelling and simulation, controls, and acoustics. I graduated from North Carolina State University in 2026.
+
 I'm originally from Upstate NY where I grew up on a Dairy Farm. I've always loved playing music, starting off with a competitive bagpiping career that ended at the World Pipeband Championships in Glasgow, Scotland in 2015.
 
-I spent some time in community college after high school, but had no idea what I wanted to do. I took 2 years off to travel in South America, and lived on a sailboat for a few months. 
-
-I graduated from North Carolina State University in 2026 with a degree in Mechanical Engineering. Occasionally, I take time off to do something physically challenging, like walking 500 miles on the Camino de Santiago or a long distance cycling trip on the Blue Ridge Parkway.
+Occasionally, I take time off to do something off the beaten path, like walking the Camino de Santiago, long distance cycling through the Blue Ridge Parkway, or living on a sailboat for several months.
 
