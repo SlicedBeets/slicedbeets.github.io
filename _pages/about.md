@@ -24,8 +24,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-
-I'm a Mechanical Engineer with broad interests in mechanical system modelling and simulation, controls, and acoustics. I graduated from North Carolina State University in 2026.
+I'm a Mechanical Engineer with broad interests in mechanical system modelling and simulation, controls, and acoustics. I graduated with a B.S. from North Carolina State University in 2026.
 
 I'm originally from Upstate NY where I grew up on a Dairy Farm. I've always loved playing music, starting off with a competitive bagpiping career that ended at the World Pipeband Championships in Glasgow, Scotland in 2015.
 
