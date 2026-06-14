@@ -2,7 +2,6 @@
 layout: about
 title: About
 permalink: /
-nav_order: 2
 subtitle: Mechanical Engineer
 
 profile:
