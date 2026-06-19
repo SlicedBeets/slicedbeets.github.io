@@ -1,2 +1,11 @@
 # Force LF line endings, needed for Docker to work on Windows
 *.sh text eol=lf
+
+# Treat common binary/media files as binary (no line ending conversion)
+*.gif binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.mp4 binary
+*.webp binary
+*.ico binary
