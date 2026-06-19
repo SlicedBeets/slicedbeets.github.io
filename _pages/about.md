@@ -26,7 +26,7 @@ latest_posts:
 
 I'm a Mechanical Engineer with broad interests in mechanical system modelling and simulation, controls, and acoustics. I graduated with a B.S. from North Carolina State University in 2026.
 
-I'm originally from Upstate NY where I grew up on a Dairy Farm. I've always loved playing music, starting off with competitive bagpiping, where I eventually played at the 2015 World Pipeband Championships in Glasgow, Scotland.
+I'm originally from Upstate NY where I grew up on a Dairy Farm. I've always loved playing music. I started off with competitive bagpiping, and eventually played at the 2015 World Pipeband Championships in Glasgow, Scotland.
 
 Occasionally, I take time to do something off the beaten path. I've cycled 500 miles on the Blue Ridge Parkway, walked the French Way of the Camino de Santiago, and have lived on a sailboat for several months on the Southern Coast of the U.S.
 

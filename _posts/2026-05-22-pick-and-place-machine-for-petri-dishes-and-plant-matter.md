@@ -3,7 +3,7 @@ layout: post
 title: Pick and Place Machine for Plant Matter
 description: 
 tags: 
-date: 2026-03-22
+date: 2026-05-22
 thumbnail: assets/img/papmfpm/SD_MACHINE.png
 featured: false
 #mermaid:
@@ -21,7 +21,7 @@ featured: false
 authors:
   - name: Will Joseph
 
-bibliography: 2026-03-22-pick-and-place-machine-for-plant-matter.bib
+bibliography: 2026-05-22-pick-and-place-machine-for-plant-matter.bib
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
