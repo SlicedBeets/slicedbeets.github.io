@@ -95,15 +95,16 @@ With our final device we were able to achieve transfer times comparable to a hum
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/papmfpm/gripper_vid.gif" class="rounded z-depth-1" style="width: 50%; object-fit: cover;" %}
+        {% include video.liquid path="assets/video/gripper_vid.mp4" class="rounded z-depth-1 w-100" style="width: 50%;" autoplay=true loop=true muted=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/papmfpm/shudder.gif" class="rounded z-depth-1" %}
+        {% include video.liquid path="assets/video/delidder.mp4" class="rounded z-depth-1 w-100" autoplay=true loop=true muted=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/papmfpm/delidder.gif" class="rounded z-depth-1" %}
+        {% include video.liquid path="assets/video/shudder.mp4" class="rounded z-depth-1 w-100" autoplay=true loop=true muted=true %}
     </div>
 </div>
+
 <div class="caption">
     From left to right, the gripper, shudder, and de-lidder mechanisms can be seen in operation.
 </div>
@@ -150,7 +151,7 @@ I went with a cam mechanism as opposed to a typical lead-screw z-axis as we didn
 
 ## Control System
 
-In total, the machine uses 11 stepper motors, 4 servos, and 2 solenoids. The brain of the machine is a Raspberry Pi 4. A BIGTREETECH Octopus V1.1 Control board was used for controlling 8 stepper motors--all 3 of the main machine axes and petri lifts--as well as all servos and solenoids. The Octopus is typically used for upgrading 3D printers, but can be repurposed for general automation projects. The remaining 3 stepper motors were controlled via a Raspberry Pi Pico (RP2040) and TMC2209 drivers wired through a spare breadboard I had. A full wiring diagram is below for those interested.
+In total, the machine uses 11 stepper motors, 4 servos, and 2 solenoids. The brain of the machine is a Raspberry Pi 4. A BIGTREETECH Octopus V1.1 Control board was used for controlling 8 stepper motors--all 3 of the main machine axes and petri lifts--as well as all servos and solenoids. The Octopus is typically used for upgrading 3D printers, but can be repurposed for general automation projects. The remaining 3 stepper motors for the shudders were controlled via a Raspberry Pi Pico (RP2040) and TMC2209 drivers wired through a spare breadboard I had. A full wiring diagram is below for those interested.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
