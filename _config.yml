@@ -158,11 +158,11 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
-# external_sources:
-#  - name: medium.com
-#    rss_url: https://medium.com/@al-folio/feed
-#    categories: [external-posts]
-#    tags: [medium]
+external_sources:
+  - name: altair.com
+    rss_url: https://support.altair.com/csm/en/ross-point-and-wind-up-center-optimization-of-leaf-springs-using?id=kb_article_view&sysparm_article=KB0124912&sys_kb_id=db07f971dbc89e50cfd5f6a4e296193c&spa=1
+    categories: [external-posts]
+    tags:
 #  - name: Google Blog
 #    posts:
 #      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/

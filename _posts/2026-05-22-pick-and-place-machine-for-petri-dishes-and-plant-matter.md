@@ -109,7 +109,7 @@ We were told that the research scientists process over *100,000* petri dishes of
     (LEFT) Full CAD model of final device. (RIGHT) Timelapse of prototype in operation.
 </div>
 
-With our final device we were able to achieve transfer times comparable to a human operator, ~98% reliability (explained below)fully automate the petri dish handling, and stay under our $1000 budget. The main functional elements of our final device are:
+With our final device we were able to achieve transfer times comparable to a human operator, ~98% reliability, fully automate the petri dish handling, and stay under our $1000 budget. The main functional elements of our final device are:
 
 - 2 parallel carriages for holding and moving the petri dishes during transfer, defined as our x-direction degree of freedom (DOF).
 - 1 gantry above the carriages to allow movement between the two parallel carriages / creating the necessary y-direction DOF.
@@ -130,7 +130,7 @@ With our final device we were able to achieve transfer times comparable to a hum
     </div>
 </div>
 <div class="caption">
-    From left to right, here you can see the gripper, shudder, and de-lidder mechanisms in operation.
+    From left to right, the gripper, shudder, and de-lidder mechanisms can be seen in operation.
 </div>
 
 ## Design Approach
