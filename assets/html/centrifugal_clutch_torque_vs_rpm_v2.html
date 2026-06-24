@@ -1,0 +1,161 @@
+
+<style>
+  .ctrl-row{display:flex;align-items:center;gap:14px;margin:0 0 14px}
+  .ctrl-label{font-size:13px;color:var(--color-text-secondary);min-width:140px}
+  .ctrl-val{font-size:14px;font-weight:500;min-width:60px;color:var(--color-text-primary)}
+  .legend-row{display:flex;gap:24px;flex-wrap:wrap;margin:10px 0 4px}
+  .legend-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--color-text-secondary)}
+  #chart-wrap{position:relative;width:100%;height:380px;margin-top:8px}
+  .param-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+  .param-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
+  .param-card .plabel{font-size:11px;color:var(--color-text-secondary);margin-bottom:2px}
+  .param-card .pval{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+</style>
+
+<h2 class="sr-only">Centrifugal clutch torque vs RPM — select drum diameter to view low-gain and high-gain torque curves</h2>
+
+<div class="ctrl-row">
+  <span class="ctrl-label">Drum diameter (in)</span>
+  <input type="range" id="s_rd" min="0" max="6" step="1" value="3" style="flex:1">
+  <span class="ctrl-val" id="v_rd">4.50 in</span>
+</div>
+
+<div class="param-grid" id="param-display"></div>
+
+<div class="legend-row">
+  <span class="legend-item">
+    <svg width="24" height="4"><line x1="0" y1="2" x2="24" y2="2" stroke="#3266ad" stroke-width="2.5"/></svg>
+    Low-gain
+  </span>
+  <span class="legend-item">
+    <svg width="24" height="4"><line x1="0" y1="2" x2="24" y2="2" stroke="#3266ad" stroke-width="2" stroke-dasharray="5,3"/></svg>
+    High-gain
+  </span>
+  <span class="legend-item">
+    <svg width="10" height="10"><circle cx="5" cy="5" r="4" fill="#c0392b"/></svg>
+    Target at S₂
+  </span>
+</div>
+
+<div id="chart-wrap">
+  <canvas id="tc" role="img" aria-label="Torque vs RPM curves for selected drum diameter">Torque vs RPM for centrifugal clutch design space.</canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const DATA = [
+  {R_D:5.75,R_GS:1.78,R_GW:1.73,L1:2.26,L2:1.78,V_Shoe:4.96639, V_Wedge:0.54630},
+  {R_D:5.5, R_GS:1.70,R_GW:1.66,L1:2.16,L2:1.70,V_Shoe:4.25946, V_Wedge:0.47810},
+  {R_D:5.25,R_GS:1.63,R_GW:1.58,L1:2.06,L2:1.63,V_Shoe:3.65316, V_Wedge:0.41580},
+  {R_D:5.0, R_GS:1.55,R_GW:1.50,L1:1.96,L2:1.55,V_Shoe:3.25,    V_Wedge:0.35379},
+  {R_D:4.75,R_GS:1.47,R_GW:1.43,L1:1.86,L2:1.47,V_Shoe:2.68718, V_Wedge:0.30790},
+  {R_D:4.5, R_GS:1.39,R_GW:1.35,L1:1.76,L2:1.39,V_Shoe:2.30468, V_Wedge:0.26180},
+  {R_D:4.25,R_GS:1.31,R_GW:1.28,L1:1.67,L2:1.31,V_Shoe:1.97663, V_Wedge:0.22060},
+];
+
+const g=32.2, C1=(4*Math.PI**2)/3600/g, n=3, mu=0.34;
+const phi_l=-18.25*Math.PI/180;
+const phi_h= 51.19*Math.PI/180;  // col6 "phi" from Excel
+const theta =58.79*Math.PI/180;
+const S_o=1200, S_2=1450, T_low=15*1.3, rho=0.245777621;
+const t_torque=225/12;
+const N_PTS=400, N_MIN=S_o, N_MAX=S_2+400;
+
+function computeCurves(row) {
+  const R_D=row.R_D/12, R_GS=row.R_GS/12, R_GW=row.R_GW/12;
+  const L1=row.L1/12, L2=row.L2/12;
+  const W_S=row.V_Shoe*rho*0.6, W_W=row.V_Wedge*rho;
+  const F_Y1=(T_low*Math.sin(phi_l))/(n*L1);
+  const k=mu*R_D*Math.sin(phi_h)/(L2*Math.cos(theta));
+  const labels=[], low=[], high=[];
+  for(let i=0;i<=N_PTS;i++){
+    const N=N_MIN+(N_MAX-N_MIN)*i/N_PTS;
+    labels.push(+N.toFixed(1));
+    const T_CL=n*(C1*W_S*R_GS*(N**2-S_o**2)-F_Y1)*mu*R_D;
+    const F_GW=C1*W_W*R_GW*N**2;
+    const A=n*(C1*W_S*R_GS*(N**2-S_o**2)+F_GW)*mu*R_D;
+    const T_CH=(1-k)!==0?A/(1-k):null;
+    low.push(+T_CL.toFixed(4));
+    high.push(T_CH!==null?+T_CH.toFixed(4):null);
+  }
+  return {labels,low,high};
+}
+
+function updateParams(row){
+  const W_S=(row.V_Shoe*rho*0.6).toFixed(4);
+  const W_W=(row.V_Wedge*rho).toFixed(4);
+  document.getElementById('param-display').innerHTML=`
+    <div class="param-card"><div class="plabel">R_GS</div><div class="pval">${row.R_GS.toFixed(2)} in</div></div>
+    <div class="param-card"><div class="plabel">R_GW</div><div class="pval">${row.R_GW.toFixed(2)} in</div></div>
+    <div class="param-card"><div class="plabel">L1</div><div class="pval">${row.L1.toFixed(2)} in</div></div>
+    <div class="param-card"><div class="plabel">L2</div><div class="pval">${row.L2.toFixed(2)} in</div></div>
+    <div class="param-card"><div class="plabel">W_S (lbf)</div><div class="pval">${W_S}</div></div>
+    <div class="param-card"><div class="plabel">W_W (lbf)</div><div class="pval">${W_W}</div></div>
+    <div class="param-card"><div class="plabel">V_Shoe (in³)</div><div class="pval">${row.V_Shoe.toFixed(3)}</div></div>
+    <div class="param-card"><div class="plabel">V_Wedge (in³)</div><div class="pval">${row.V_Wedge.toFixed(4)}</div></div>
+  `;
+}
+
+const isDark=matchMedia('(prefers-color-scheme: dark)').matches;
+const gridColor=isDark?'rgba(255,255,255,0.08)':'rgba(0,0,0,0.07)';
+const textColor=isDark?'#aaa':'#666';
+
+const initRow=DATA[2];
+const {labels,low,high}=computeCurves(initRow);
+
+const chart=new Chart(document.getElementById('tc').getContext('2d'),{
+  type:'line',
+  data:{
+    labels,
+    datasets:[
+      {label:'Low-gain',data:low,borderColor:'#3266ad',borderWidth:2,pointRadius:0,tension:0.1},
+      {label:'High-gain',data:high,borderColor:'#3266ad',borderWidth:2,pointRadius:0,tension:0.1,borderDash:[6,4]},
+      {
+        label:'Target',
+        data:labels.map(l=>Math.abs(l-S_2)<(N_MAX-N_MIN)/N_PTS*1.5?t_torque:null),
+        borderColor:'#c0392b',borderWidth:0,
+        pointRadius:7,pointStyle:'circle',pointBackgroundColor:'#c0392b',
+        showLine:false,spanGaps:false
+      }
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,animation:{duration:100},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        mode:'index',intersect:false,
+        filter:item=>item.raw!==null,
+        callbacks:{
+          title:items=>`N = ${Math.round(items[0].parsed.x)} RPM`,
+          label:ctx=>ctx.raw!==null?`${ctx.dataset.label}: ${(+ctx.raw).toFixed(2)} ft·lb`:null
+        }
+      }
+    },
+    scales:{
+      x:{type:'linear',min:N_MIN,max:N_MAX,
+        title:{display:true,text:'RPM (N)',color:textColor,font:{size:12}},
+        ticks:{color:textColor,maxTicksLimit:8,callback:v=>Math.round(v)},
+        grid:{color:gridColor}},
+      y:{min:0,max:40,
+        title:{display:true,text:'Torque (ft-lbs)',color:textColor,font:{size:12}},
+        ticks:{color:textColor},grid:{color:gridColor}}
+    }
+  }
+});
+
+updateParams(initRow);
+document.getElementById('v_rd').textContent=initRow.R_D.toFixed(2)+' in';
+
+document.getElementById('s_rd').addEventListener('input',function(){
+  const row=DATA[+this.value];
+  document.getElementById('v_rd').textContent=row.R_D.toFixed(2)+' in';
+  const {labels,low,high}=computeCurves(row);
+  chart.data.labels=labels;
+  chart.data.datasets[0].data=low;
+  chart.data.datasets[1].data=high;
+  chart.data.datasets[2].data=labels.map(l=>Math.abs(l-S_2)<(N_MAX-N_MIN)/N_PTS*1.5?t_torque:null);
+  chart.update();
+  updateParams(row);
+});
+</script>
