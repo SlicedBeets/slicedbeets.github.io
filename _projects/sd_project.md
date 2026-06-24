@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Pick and Place Machine for Plant Matter
-description: 25-26 Senior Design Project
+description: 2025-2026 Senior Design project for industry sponsor, Syngenta.
 img: assets/img/papmfpm/SD_MACHINE.png
 importance: 1
 category: work
