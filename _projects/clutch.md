@@ -182,7 +182,7 @@ $$
 
 $$
 
-With this data, we could then iterate over torque capacity curves for different drum radii and width. Radius was iterated first (Figure 7) since it has a more significant affect on the overall torque capacity. Once the radius with the closest desired performance was selected, width was then iterated, keeping our selected radius of 4.25 inches constant (Figure 8). Our final curves can be seen in Figure 9 for a drum radius of $4.25$ inches and a width of $1.234$ inches. 
+With this data, we could then iterate over torque capacity curves for different drum radii and width. Radius was iterated first (Figure 7) since it has a more significant affect on the overall torque capacity. Once the radius with the closest desired performance was selected, width was then iterated, keeping our selected radius of 4.25 inches constant (Figure 8). Our final curves can be seen in Figure 9 for a drum radius of 4.25 inches and a width of 1.234 inches. 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0 fixed-height-row">
