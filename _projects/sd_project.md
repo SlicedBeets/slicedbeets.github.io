@@ -32,13 +32,16 @@ _styles: >
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0 fixed-height-row">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/SD_MACHINE.png" class="rounded z-depth-1" %}
+        <div class="caption">
+        Final prototype machine delivered to sponsor.
+        </div>
     </div>
     <div class="col-sm mt-3 mt-md-0 fixed-height-row">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/winners.jpg" class="rounded z-depth-1" %}
+        <div class="caption">
+        Winners! From left to right, Myself, Simon Gneuss, Marissa Maynard, and Garett Fox. Last member not shown is Sherif Tawouss.
+        </div>
     </div>
-</div>
-<div class="caption">
-    (LEFT) Final prototype machine delivered to sponsor. (RIGHT) Winners! From left to right, Myself, Simon Gneuss, Marissa Maynard, and Garett Fox. Last member not shown is Sherif Tawouss.
 </div>
 
 ## The Problem
@@ -54,9 +57,15 @@ This process then repeats one more time after a few weeks, when the callus grow 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/transfer_1.png" class="rounded z-depth-1" style="width: 100%; height: 200px; object-fit: cover;" %}
+        <div class="caption">
+        First transfer from 2 dishes of 45 to 3 dishes of 30.
+        </div>
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/transfer_2.png" class="rounded z-depth-1" %}
+        <div class="caption">
+        Second transfer from 2 dishes of 30 to 3 dishes of 20.
+        </div>
     </div>
 </div>
 
@@ -75,13 +84,16 @@ We were told that the research scientists process over *100,000* petri dishes of
 <div class="row mt-3 ">
     <div class="col-sm mt-3 mt-md-0 fixed-height-row">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/SD_FULL_CAD.png" class="rounded z-depth-1" %}
+        <div class="caption">
+        Full CAD model of final device.
+        </div>
     </div>
     <div class="col-sm mt-3 mt-md-0 fixed-height-row">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/timelapse.gif" class="rounded z-depth-1" %}
+        <div class="caption">
+        Timelapse of prototype in operation.
+        </div>
     </div>
-</div>
-<div class="caption">
-    (LEFT) Full CAD model of final device. (RIGHT) Timelapse of prototype in operation.
 </div>
 
 With our final device we were able to achieve transfer times comparable to a human operator, ~98% reliability, fully automate the petri dish handling, and stay under our $1000 budget. The main functional elements of our final device are:

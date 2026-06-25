@@ -168,6 +168,8 @@ For optimization, we focused treating the overall diameter and width of the drum
         <strong>Table 1: Geometric Parameters for Differing Drum Radii</strong>
 </div>
 
+<div style="overflow-x: auto;">
+
 $$
 
 \begin{array}{c|c|c|c|c|c}
@@ -181,6 +183,8 @@ $$
 \end{array}
 
 $$
+
+</div>
 
 With this data, we could then iterate over torque capacity curves for different drum radii and width. Radius was iterated first (Figure 7) since it has a more significant affect on the overall torque capacity. Once the radius with the closest desired performance was selected, width was then iterated, keeping our selected radius of 4.25 inches constant (Figure 8). Our final curves can be seen in Figure 9 for a drum radius of 4.25 inches and a width of 1.234 inches. 
 
@@ -216,7 +220,10 @@ From our now finalized design, we could determine our spring displacements, forc
         <strong>Table 2: Required Spring Parameters</strong>
 </div>
 
+<div style="overflow-x: auto;">
+
 $$
+
 \small
 \begin{array}{l|c|c|c|c}
  & \text{Load 1 (lbs)} & \text{Length @ Load 1 (in)} & \text{Load 2 (lbs)} & \text{Length @ Load 2 (in)} \\
@@ -226,9 +233,13 @@ $$
 
 $$
 
+</div>
+
 <div class="caption">
         <strong>Table 3: Final Spring Specifications</strong>
 </div>
+
+<div style="overflow-x: auto;">
 
 $$
 
@@ -240,6 +251,8 @@ $$
 \end{array}
 
 $$
+
+</div>
 
 <br/>
 <br/>

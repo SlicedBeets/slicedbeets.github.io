@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Leaf Spring Optimization
-description: Altair Blog Post (external) on some of the modelling and optimization and I did at Volvo Trucks North America.
+title: Leaf Spring Optimization (External)
+description: Altair blog post on one of the simulation and optimization tools I created at Volvo Trucks with assistance from Altair.
 img: assets/img/ross/leaf.png
 importance: 2
 category: work
