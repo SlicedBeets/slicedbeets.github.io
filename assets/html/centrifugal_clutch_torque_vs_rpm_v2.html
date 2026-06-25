@@ -62,7 +62,7 @@ const t_torque=225/12;
 const N_PTS=400, N_MIN=S_o, N_MAX=S_2+400;
 
 function computeCurves(row) {
-  const R_D=row.R_D/12, R_GS=row.R_GS/12, R_GW=row.R_GW/12;
+  const R_D=row.R_D/24, R_GS=row.R_GS/12, R_GW=row.R_GW/12;
   const L1=row.L1/12, L2=row.L2/12;
   const W_S=row.V_Shoe*rho*0.6, W_W=row.V_Wedge*rho;
   const F_Y1=(T_low*Math.sin(phi_l))/(n*L1);
