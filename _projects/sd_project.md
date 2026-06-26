@@ -123,13 +123,13 @@ With our final device we were able to achieve transfer times comparable to a hum
 
 ## Design Approach
 
-During early phases, we decided on a few overall guiding principles for how we were to design the machine, especially in the context of the competition: t
+During early phases, we decided on a few overall guiding principles for how we were to design the machine, especially in the context of the competition:
 
 1. Automating the entire process was top priority (as stated above).
 
 2. Design subsystems for modularity and simplicity to aid as much as possible in overall reliability and manufacturing complexity.
 
-3. Because of the size of the budget ($1000), limit the amount of metal / precision components and 3D print as much as possible.
+3. Because of the size of the budget ($1000), we needed to 3D print as much as possible.
 
 I believe point #2 was one of the main reasons that we ended up winning with our design. While the other teams designed systems that would have extremely fast transfer times *in theory* (e.g. the 2nd and 3rd place winner's designs were a 5-bar linkage gripper and a delta robot, respectively), the required complexity of those designs, mechanically and controls-wise, led to far more gremlins and last-minute headaches.
 
