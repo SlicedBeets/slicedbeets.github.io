@@ -147,17 +147,35 @@ Before designing the gripper, I tried to find solutions to comparable problems w
     </div>
     <div class="col-sm mt-3 mt-md-0">
         <p>
-         Our gripper uses  similar “tweezer-like” plate grippers made from thin sheet metal that open and close to grip and release calluses. The full assembly picture that I stole from our final report is adjacent, excluding springs for clarity--they can be seen in the above gif. Rather than use SMA wire, the plates are opened using fishing line wound around guides (<strong>2.l</strong>) and connected to a servo via a linkage (<strong>2.i</strong>) which separates the plates when rotated.</p>
-        <br/>
+         Our gripper uses  similar “tweezer-like” plate grippers made from thin sheet metal that open and close to grip and release calluses. A full assembly picture from our final report is adjacent, excluding springs for clarity--they can be seen in the above gif. Rather than use SMA wire, the plates are opened using fishing line wound around guides (<strong>2.l</strong>) and connected to a servo via a linkage (<strong>2.i</strong>) which separates the plates when rotated.</p>
+        <p></p>
         The entire callus gripper has a single DoF in z-direction, modulated via a servo, cam, and return springs. This provided 20 mm of travel--enough to raise callus over the edge of petri dishes and place them firmly into the medium of the next petri dish.
     </div>
 </div>
 
-I went with a cam mechanism as opposed to a typical lead-screw z-axis as we didn't need that level of precision or length for the z-axis. The cam mechanism is also much faster and light than a stepper motor + lead assembly.
+I went with a cam mechanism as opposed to a typical lead-screw z-axis as we didn't need that level of precision or length for the z-axis. A stepper motor + lead assembly would have been much heavier, requiring a beefed up gantry system that would eat into our budget and likely be slower overall.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/papmfpm/z-cam.png" class="rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Illustration of cam and lower callus arm assembly movement during operation.
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        <p>A difficult part of designing this system had to do with the linear bearings that travel up and down on the ground rods pressed into the base. We needed to achieve reasonable <a href="https://my.mech.utah.edu/~me7960/lectures/Topic8-LinearRollingBearings.pdf#page=7">bearing ratio</a> and design a simple way to <a href="https://my.mech.utah.edu/~me7960/lectures/Topic8-LinearRollingBearings.pdf#page=8">float</a> one side of bearings to avoid over-constraining the system.</p>
+        <p></p>
+        <p>
+        Bearing ratio was mostly a matter of packaging relative the space available to mount the system to the gantry. Creating a floating side took some trial and error, but after a few different prototypes I found that I could over-size the bearing mount hole and press o-rings between the interface to give a reasonable amount of radial play while still securing the bearing in the axial direction.</p>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/papmfpm/bearing_oring.png" class="img-fluid rounded z-depth-1" %}
+        <div class="caption">
+        Section view of bottom half of Gripper / Z-Cam system showing linear bearing mounts.
+        </div>
     </div>
 </div>
 
