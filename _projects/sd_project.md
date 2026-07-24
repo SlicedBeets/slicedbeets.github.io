@@ -127,9 +127,9 @@ During early phases, we decided on a few overall guiding principles for how we w
 
 1. Automating the entire process was top priority (as stated above).
 
-2. Design subsystems for modularity and simplicity to aid as much as possible in overall reliability and manufacturing complexity.
+2. Design subsystems for modularity and simplicity to aid in concurrent subsystem assembly and testing.
 
-3. Because of the size of the budget ($1000), we needed to 3D print as much as possible.
+3. A budget of $1000 would require us to prioritize designs that use components readily available in the lab closet and 3D printed structures.
 
 I believe point #2 was one of the main reasons that we ended up winning with our design. While the other teams designed systems that would have extremely fast transfer times *in theory* (e.g. the 2nd and 3rd place winner's designs were a 5-bar linkage gripper and a delta robot, respectively), the required complexity of those designs, mechanically and controls-wise, led to far more gremlins and last-minute headaches.
 
@@ -241,6 +241,6 @@ Shown below are the identification images output by our Callus Finder script. Bo
     </div>
 </div>
 
-A lot of cool design details are missing from this post for the rest of this machine, but it would quickly turn into a book if I explained everything. I'm super happy with how the project turned out and had a great time working with the rest of the team.
+A lot of cool design details are missing from this post that the rest of the team worked super hard on. I'm super happy with how the project turned out and had a great time working with everyone.
 
 ---
